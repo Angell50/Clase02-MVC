@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Clase02_MVC.Data;
 using Clase02_MVC.Models;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Clase02_MVC.Controllers
 {
@@ -46,6 +47,7 @@ namespace Clase02_MVC.Controllers
         // GET: Estudiantes/Create
         public IActionResult Create()
         {
+            ViewData["IdCarrera"] = new SelectList(_context.Set<Carrera>(), "Id", "Nombre");
             return View();
         }
 
